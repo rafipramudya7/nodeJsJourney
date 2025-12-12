@@ -1,0 +1,19 @@
+{
+  "name": "chalk",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "internal.js",
+  "scripts": {
+    "start": "nodemon internal.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "chalk": "^5.6.2",
+    "readline-sync": "^1.4.10",
+    "validator": "^13.15.23",
+    "start": "nodemon internal.js"
+  },"devDependencies": {}
+}
