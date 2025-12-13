@@ -1,6 +1,6 @@
 # Await vs Syncronus
 
-mungkin dalam konteks terlehat hampir sama. Dalam menjalankan await seloah sync , namun perbedaanya  pada await itu blocking tehadap fungsinya sendiri sedangkan syncronus dia blocking terhadap semua. contoh kode `./await.js`
+mungkin dalam outputnya terlihat hampir sama. Dalam menjalankan await seloah sync , namun perbedaanya  pada await itu blocking tehadap fungsinya sendiri sedangkan syncronus dia blocking terhadap semua. contoh kode `./await.js`
 
 ```
 async function demo() {
@@ -22,3 +22,4 @@ Ketika code tersebut dijalankanakan menghasilkan output:
 2
 3
 ```
+hal tersebut menunjukan bahwa ia akan mengeksekusi semua perintah secara asyncronus kecuali function nya sendiri, menunggu dulu selama dua detik baru `console.log(3)`
