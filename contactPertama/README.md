@@ -12,6 +12,13 @@ async function demo() {
 console.log("0");
 demo();
 console.log("2");
+```
 
+Ketika code tersebut dijalankanakan menghasilkan output:
 
+```
+0
+1
+2
+3
 ```

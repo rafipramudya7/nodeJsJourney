@@ -26,13 +26,21 @@ if(!fs.existsSync('./data.json')){
 
 
 const main = async() =>{
-  const jawaban = await pertanyaan("kamu sudah makan");
-   console.log(jawaban);
+  const nama = await pertanyaan("siapa namamu:");
+  const umur = await pertanyaan("umur kamu:");
+  const asal = await pertanyaan("domisili mana :");
 
-
+ const input = {nama,umur,asal};
+ var muatan = fs.readFileSync('./data.json','utf-8')
+ muatan = JSON.parse(muatan);
+ muatan.push(input);
+ muatan = JSON.stringify(muatan);
+ fs.writeFileSync('./data.json',muatan);
+ question.close();
 }
 
 main();
+
 
 
 
