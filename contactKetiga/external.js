@@ -47,13 +47,15 @@ const store = (dataInput) => {
   fs.writeFileSync("./data.json", dataUtama);
 };
 
-// cari nama
 
 const cari = (nama) =>{
   var data = load();
   var hasil = data.filter((item) => {
     return item.nama.toLowerCase() === nama.toLowerCase();
   })
+  if(hasil.length == 0){
+    console.log(`${chalk.red(`data ${nama} tidak ditemukan`)}`)
+  }
   hasil.forEach((element,index) => {
     console.log(`${index+1}. ${element.nama} ${element.email} ${element.phone}`);
   });

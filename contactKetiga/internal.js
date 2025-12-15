@@ -97,20 +97,8 @@ argv.command({
   }
 })
 
-const main = async () => {
-  const nama = await req.ujian("siapa namamu : ");
-  const email = await req.ujian("masukan email mu : ");
-  const phone = await req.ujian("masukan nomor Hp mu :");
-  const data = { nama, email, phone };
-  req.store(data);
-  console.log(data);
-  req.close();
-};
-
-if (process.argv.length <= 2) {
-  // tidak ada command → mode interaktif
-  main();
-} else {
-  // ada command → yargs
-  argv.help().parse();
-}
+argv
+  .demandCommand(1, chalk.red('Kamu harus memasukkan perintah yang valid!'))
+  .strict()
+  .help()
+  .parse();
