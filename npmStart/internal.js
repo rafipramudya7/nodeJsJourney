@@ -1,7 +1,6 @@
 const req = require('chalk');
 const check = require('validator');
 var prompt = require('readline-sync');
-const { default: chalk } = require('chalk');
 
 var nomor = prompt.question('masukan nomor hp :');
 var cek = check.isMobilePhone(nomor,'id-ID');
