@@ -6,6 +6,14 @@ const app = express();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+
+app.get('/product/:id',(req,res)=>{
+  return res.json({
+    raoute:"product",
+    params:`${req.params.id}`,
+    query:`${req.query.q}`
+  })
+})
 app.get('/:page',(req,res)=>{
   const alur = path.join(__dirname,`${req.params.page}.html`);
   res.sendFile(alur,(err)=>{
@@ -15,4 +23,5 @@ app.get('/:page',(req,res)=>{
 
 app.listen(3000,()=>{
   console.log("server sedang berjalan...");
+  return;
 })
