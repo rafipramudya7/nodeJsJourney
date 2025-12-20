@@ -3,9 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title><%= tittle %></title>
 </head>
 <body>
-    <h1>hallo enam tujuh</h1>
+    <h1>hallo <%= nama %></h1>
+
+    <% mahasiswa.forEach(tiap => { %>
+     <ul>
+        <li>Nama : <%= tiap.nama %> </li>
+        <li>Umur : <%= tiap.umur %></li>
+     </ul>
+    <% }) %>
 </body>
 </html>
