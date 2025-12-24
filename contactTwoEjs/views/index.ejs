@@ -1,0 +1,32 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nama</th>
+            <th scope="col">No HP</th>
+            <th scope="col">Aksi</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% data.forEach((element,i)=> { %>
+            <tr>
+                <th scope="row">
+                    <%= i+1 %>
+                </th>
+                <td>
+                    <%= element.nama %>
+                </td>
+                <td>
+                    <%= element.phone %>
+                </td>
+                <td>
+                    <a href="/contact/<%= element.nama %>" class="badge rounded-pill bg-success px-3 py-2"
+                        style="text-decoration: none;">
+                        detail
+                    </a>
+                </td>
+            </tr>
+            <%}); %>
+
+    </tbody>
+</table>
