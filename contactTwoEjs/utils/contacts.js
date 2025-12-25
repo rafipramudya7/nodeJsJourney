@@ -18,16 +18,16 @@ const cari = (nama) =>{
   var hasil = data.find((item) => {
     return item.nama.toLowerCase() === nama.toLowerCase();
   })
-  if(hasil.length == 0){
-    console.log(`${chalk.red(`data ${nama} tidak ditemukan`)}`)
-  }else{
-    return(hasil);
-    console.log(`${1}. ${hasil.nama} ${hasil.email} ${hasil.phone}`);
-  }
+  return hasil;
+}
+const tambahData = (data) =>{
+  var isi = load();
+  isi.push(data);
+  isi = fs.writeFileSync('./data.json',JSON.stringify(isi));
+
 }
 
-
-export default { load, cari };
+export default { load, cari ,tambahData};
 
 
 
