@@ -52,7 +52,7 @@ app.post(
       const data = req.body;
       loadContacts.tambahData(data);
       req.flash("msg", "data sudah berhasil ditambahkan");
-      res.redirect("index")
+      res.redirect("index");
     }
   }
 );
