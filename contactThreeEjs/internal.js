@@ -82,7 +82,7 @@ app.get("/edit/:nama", (req, res) => {
   const data = loadContacts.cari(req.params.nama);
   if (!data) {
     req.flash("msg", "jangan ngawur");
-    res.redirect("/index");
+    return res.redirect("/index");
   } else {
     data.hiddenNama = data.nama;
     res.render("edit", {
@@ -92,6 +92,10 @@ app.get("/edit/:nama", (req, res) => {
 });
 app.get("/delete/:nama", (req, res) => {
   const sumber = req.params.nama;
+  if (!loadContacts.cari(req.params.nama)) {
+    req.flash("msg", "jangan ngawur");
+    return res.redirect("/index");
+  }
   loadContacts.hapus(sumber);
   req.flash("msg", "data sudah berhasil dihapus");
   res.redirect("/index");
@@ -99,6 +103,10 @@ app.get("/delete/:nama", (req, res) => {
 app.get("/contact/:page", (req, res) => {
   const sumber = req.params.page;
   const data = loadContacts.cari(sumber);
+  if (!data) {
+    req.flash("msg", "jangan ngawur");
+   return  res.redirect("/index");
+  }
   res.render("detail", {
     nama: data.nama,
     phone: data.phone,

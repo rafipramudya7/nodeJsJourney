@@ -1,1 +1,27 @@
-[{"hiddenNama":"musds","nama":"musds","email":"asdasdd@gmail.com","phone":"085807108936"}]
+[
+  {
+    "nama": "Arif",
+    "email": "asdas@gmail.com",
+    "phone": "9877"
+  },
+  {
+    "nama": "Budi Kocak",
+    "email": "bukanemail#yahoo.com",
+    "phone": "000111222"
+  },
+  {
+    "nama": "Citra Nyasar",
+    "email": "citra@ngasal",
+    "phone": "99887766"
+  },
+  {
+    "nama": "Dedi Typo",
+    "email": "dedi@@@gmail..con",
+    "phone": "12341234"
+  },
+  {
+    "nama": "Eka Rahasia",
+    "email": "ekaaaaa.com",
+    "phone": "555666777"
+  }
+]

@@ -24,7 +24,6 @@ const tambahData = (data) => {
 };
 
 const hapus = (data) => {
-  console.log(data);
   var isi = load();
   var hasil;
   if (!cari(data)) {
@@ -37,7 +36,6 @@ const hapus = (data) => {
   }
 };
 const edit = (data) => {
-  console.log(`data ditemukan siap hapus`);
   hapus(data.hiddenNama);
   tambahData(data);
 };
