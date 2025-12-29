@@ -1,0 +1,35 @@
+<% if(locals.errors && errors.length> 0){%>
+    <div class="alert alert-danger" role="alert">
+        <ul>
+            <% errors.forEach(element=> { %>
+                <li>
+                    <%= element.msg %>
+                </li>
+                <% }) %>
+        </ul>
+    </div>
+
+    <%} %>
+        <form action="/api/edit" method="POST">
+            <input type="hidden" class="form-control" id="hiddenNama" name="hiddenNama"
+                value="<%= locals.oldData ? oldData.hiddenNama : '' %>" required />
+            <div class="mb-3">
+                <label for="nama" class="form-label">Nama</label>
+                <input type="text" class="form-control" id="nama" name="nama"
+                    value="<%= locals.oldData ? oldData.nama : '' %>" required />
+            </div>
+
+            <div class="mb-3">
+                <label for="email" class="form-label">Alamat Email</label>
+                <input type="email" class="form-control" id="email" name="email"
+                    value="<%= locals.oldData ? oldData.email : '' %>" required />
+            </div>
+
+            <div class="mb-3">
+                <label for="phone" class="form-label">Nomor HP</label>
+                <input type="tel" class="form-control" id="phone" name="phone"
+                    value="<%= locals.oldData ? oldData.phone : '' %>" required />
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>

@@ -29,6 +29,27 @@ app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 
 app.post(
+  "/api/edit",
+  [
+    body("nama").isLength({ min: 5 }).withMessage("namanem cilikken cuy"),
+    body("phone").isMobilePhone("id-ID").withMessage("phone tidak valid"),
+  ],
+  (req, res) => {
+    const errors = validationResult(req);
+
+    if (!errors.isEmpty()) {
+      res.render("edit", {
+        errors: errors.array(),
+        oldData: req.body,
+      });
+    } else {
+      loadContacts.edit(req.body);
+      req.flash("msg", "data sudah berhasil diedit");
+      res.redirect("/index");
+    }
+  }
+);
+app.post(
   "/add-contact",
   [
     body("nama").isLength({ min: 5 }).withMessage("namanem cilikken cok"),
@@ -52,10 +73,29 @@ app.post(
       const data = req.body;
       loadContacts.tambahData(data);
       req.flash("msg", "data sudah berhasil ditambahkan");
-      res.redirect("index");
+      res.redirect("/index");
     }
   }
 );
+
+app.get("/edit/:nama", (req, res) => {
+  const data = loadContacts.cari(req.params.nama);
+  if (!data) {
+    req.flash("msg", "jangan ngawur");
+    res.redirect("/index");
+  } else {
+    data.hiddenNama = data.nama;
+    res.render("edit", {
+      oldData: data,
+    });
+  }
+});
+app.get("/delete/:nama", (req, res) => {
+  const sumber = req.params.nama;
+  loadContacts.hapus(sumber);
+  req.flash("msg", "data sudah berhasil dihapus");
+  res.redirect("/index");
+});
 app.get("/contact/:page", (req, res) => {
   const sumber = req.params.page;
   const data = loadContacts.cari(sumber);
@@ -69,13 +109,11 @@ app.get("/contact/:page", (req, res) => {
 app.get("/:page", (req, res, next) => {
   const sumber = req.params.page;
   if (sumber === "favicon.ico") return res.status(204).end();
-  // console.log(loadContacts.load());
   res.render(
     sumber,
     { data: loadContacts.load(), msg: req.flash("msg") },
     (err, html) => {
       if (err) {
-        // console.log("error addffnjing");
         return res.render("error");
       }
       res.send(html);

@@ -23,4 +23,22 @@ const tambahData = (data) => {
   isi = fs.writeFileSync("./data.json", JSON.stringify(isi));
 };
 
-export default { load, cari, tambahData };
+const hapus = (data) => {
+  console.log(data);
+  var isi = load();
+  var hasil;
+  if (!cari(data)) {
+    console.log("data yang akan dihapus tidak ada");
+  } else {
+    hasil = isi.filter((item) => {
+      return item.nama.toLowerCase() !== data.toLowerCase();
+    });
+    fs.writeFileSync("./data.json", JSON.stringify(hasil));
+  }
+};
+const edit = (data) => {
+  console.log(`data ditemukan siap hapus`);
+  hapus(data.hiddenNama);
+  tambahData(data);
+};
+export default { load, cari, tambahData, hapus, edit };

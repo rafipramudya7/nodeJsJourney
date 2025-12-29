@@ -1,8 +1,18 @@
 <div class="card" style="width: 18rem;">
   <div class="card-body">
-    <h5 class="card-title"><%= nama %></h5>
-    <h6 class="card-subtitle mb-2 text-body-secondary"><%= email %></h6>
-    <p class="card-text"><%= phone %></p>
-
+    <h5 class="card-title">
+      <%= nama %>
+    </h5>
+    <h6 class="card-subtitle mb-2 text-body-secondary">
+      <%= email %>
+    </h6>
+    <p class="card-text">
+      <%= phone %>
+    </p>
+    <a href="/edit/<%=nama%>" class="badge rounded-pill bg-primary px-3 py-2 blue" style="text-decoration: none;">
+      edit
+    </a><a href="/delete/<%= nama %>" class="badge rounded-pill bg-danger px-3 py-2 red" style="text-decoration: none;">
+      hapus
+    </a>
   </div>
 </div>
